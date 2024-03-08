@@ -1,0 +1,11 @@
+Dados cadastrais do paciente
+Nome: Carla
+Idade: 80
+Gênero: F
+----------------------------------------------------------------------
+Diagnóstico:
+Doença: gripe
+Sintomas apresentados:
+febre
+tosse
+dor_de_cabeca

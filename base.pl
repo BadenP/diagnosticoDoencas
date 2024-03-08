@@ -1,10 +1,10 @@
-:- use_module(library(plunit)).
 
 % Base de conhecimento
 
 % Sintomas da doença de Alzheimer
 sintoma('Alzheimer', 'lapsos de memória').
 sintoma('Alzheimer', 'dificuldade em reconhecer pessoas').
+/*
 sintoma('Alzheimer', 'dificuldade em recordar palavras').
 sintoma('Alzheimer', 'repetição frequente de perguntas').
 sintoma('Alzheimer', 'dificuldade em tomar decisões').
@@ -13,211 +13,126 @@ sintoma('Alzheimer', 'delírios').
 sintoma('Alzheimer', 'paranoia e desconfiança').
 sintoma('Alzheimer', 'distúrbios do sono').
 sintoma('Alzheimer', 'problemas de memória a curto e longo prazo').
-
+*/
 % Sintomas da Ataxia
 sintoma('Ataxia', 'quedas com frequência').
 sintoma('Ataxia', 'incapacidade de andar em linha reta').
+/*
 sintoma('Ataxia', 'desajeitamento').
 sintoma('Ataxia', 'fala arrastada').
 sintoma('Ataxia', 'dificuldades para engolir').
 sintoma('Ataxia', 'tremores ou agitação').
 sintoma('Ataxia', 'fadiga').
 sintoma('Ataxia', 'problemas de visão').
-
+*/
+/*
 % Sintomas de Paralisia Supranuclear Progressiva
 sintoma('Paralisia supranuclear progressiva', 'quedas repetidas').
 sintoma('Paralisia supranuclear progressiva', 'rigidez muscular').
 sintoma('Paralisia supranuclear progressiva', 'problemas oculares').
 sintoma('Paralisia supranuclear progressiva', 'tremores').
+*/
 sintoma('Paralisia supranuclear progressiva', 'lentidão de pensamento').
 sintoma('Paralisia supranuclear progressiva', 'fala mais lenta e arrastada').
 sintoma('Paralisia supranuclear progressiva', 'problemas de mobilidade').
+/*
 sintoma('Paralisia supranuclear progressiva', 'dificuldade no controle muscular da boca língua e garganta').
 sintoma('Paralisia supranuclear progressiva', 'problemas intestinais e urinários').
+*/
 
 % Sintomas de uma Enxaqueca
+sintoma('Enxaqueca', 'agitação').
 sintoma('Enxaqueca', 'dor intensa na cabeça').
-sintoma('Enxaqueca', 'dor pulsante').
+sintoma('Enxaqueca', 'dor pulsante na cabeça').
+/*
 sintoma('Enxaqueca', 'náuseas').
 sintoma('Enxaqueca', 'vômitos').
 sintoma('Enxaqueca', 'sensibilidade a luz e som').
-
+*/
 % Sintomas de Atrofia de multiplos sistemas
 sintoma('Atrofia de Múltiplos Sistemas', 'problemas de coordenação').
 sintoma('Atrofia de Múltiplos Sistemas', 'tremor, lentidão e rigidez').
+/*
 sintoma('Atrofia de Múltiplos Sistemas', 'risos ou choro incontroláveis').
 sintoma('Atrofia de Múltiplos Sistemas', 'respiração ruidosa').
-sintoma('Atrofia de Múltiplos Sistemas', 'suspiros involuntários').
 sintoma('Atrofia de Múltiplos Sistemas', 'voz fraca').
 sintoma('Atrofia de Múltiplos Sistemas', 'visão turva').
-sintoma('Atrofia de Múltiplos Sistemas', 'mãos e pés frios').
+*/
 
-fatorRisco('Alzheimer', 0.5).
-fatorRisco('Ataxia', 0.3).
-fatorRisco('Paralisia supranuclear progressiva', 0.2).
-fatorRisco('Enxaqueca', 0.1).
-fatorRisco('Atrofia de Múltiplos Sistemas', 0.4).
+% Sintomas da Fibromialgia
+sintoma('Fibromialgia', 'dor generalizada, podendo ser uma mistura de sensações como dor, ardor, ou pontadas').
+sintoma('Fibromialgia', 'a dor pode ser contínua ou variar em intensidade').
+sintoma('Fibromialgia', 'aumento da sensibilidade a sensações como toque, luz, temperatura e barulho').
+sintoma('Fibromialgia', 'fadiga extrema').
+sintoma('Fibromialgia', 'rigidez muscular').
+sintoma('Fibromialgia', 'problemas com processos mentais, como dificuldades de memória e concentração').
+sintoma('Fibromialgia', 'síndrome do intestino irritável (IBS)').
+sintoma('Fibromialgia', 'tontura e falta de coordenação').
+sintoma('Fibromialgia', 'sensação de calor ou frio excessivo').
+sintoma('Fibromialgia', 'síndrome das pernas inquietas').
+sintoma('Fibromialgia', 'sensações de formigamento, dormência, picadas ou queimações nas mãos e nos pés (parestesia)').
+sintoma('Fibromialgia', 'ansiedade').
+sintoma('Fibromialgia', 'depressão').
+
+% Sintomas da Doença de Huntington
+sintoma('Doença de Huntington', 'mudanças comportamentais').
+sintoma('Doença de Huntington', 'falta de emoções e dificuldade em reconhecer as necessidades dos outros').
+sintoma('Doença de Huntington', 'períodos de agressão, excitação, depressão, comportamento antissocial e raiva').
+sintoma('Doença de Huntington', 'apatia').
+sintoma('Doença de Huntington', 'dificuldade em concentrar-se em mais de uma tarefa e lidar com situações complexas').
+sintoma('Doença de Huntington', 'irritabilidade e impulsividade').
+sintoma('Doença de Huntington', 'comportamentos obsessivos, pensamentos ou comportamentos delirantes, teimosia, falta de autoconsciência ou pensamentos suicidas').
+sintoma('Doença de Huntington', 'movimentos incontroláveis do rosto, movimentos espasmódicos ou nervosos dos membros e do corpo').
+sintoma('Doença de Huntington', 'dificuldade em comer devido a problemas nos músculos da boca e da garganta').
+sintoma('Doença de Huntington', 'problemas de comunicação, como dificuldade em expressar pensamentos em palavras e fala arrastada').
+sintoma('Doença de Huntington', 'problemas de equilíbrio').
+
+% sintomas de Sintomas da Neuralgia Trigeminal
+sintoma('Neuralgia Trigeminal', 'falar').
+sintoma('Neuralgia Trigeminal', 'sorrir').
+sintoma('Neuralgia Trigeminal', 'mastigar').
+sintoma('Neuralgia Trigeminal', 'escovar os dentes').
+sintoma('Neuralgia Trigeminal', 'lavar o rosto').
+sintoma('Neuralgia Trigeminal', 'um toque leve').
+sintoma('Neuralgia Trigeminal', 'barbear ou aplicar maquiagem').
+sintoma('Neuralgia Trigeminal', 'engolir').
+sintoma('Neuralgia Trigeminal', 'beijar').
+sintoma('Neuralgia Trigeminal', 'uma brisa fresca ou ar condicionado').
+sintoma('Neuralgia Trigeminal', 'movimentos da cabeça').
+sintoma('Neuralgia Trigeminal', 'vibrações, como andar ou viajar de carro').
+sintoma('Neuralgia Trigeminal', 'ocorrência espontânea sem gatilhos').
+
+% Sintomas da Epilepsia
+sintoma('Epilepsia', 'crises epilépticas repetidas').
+sintoma('Epilepsia', 'diferentes tipos de crises, dependendo da parte do cérebro afetada').
+sintoma('Epilepsia', 'sensação estranha sem perda de consciência').
+sintoma('Epilepsia', 'perda da consciência e convulsões (tremores incontroláveis do corpo)').
+
+% Sintomas da Doença de Parkinson
+sintoma('Doença de Parkinson', 'os sintomas geralmente se desenvolvem gradualmente e são leves no início').
+sintoma('Doença de Parkinson', 'muitos sintomas diferentes estão associados à doença de Parkinson').
+sintoma('Doença de Parkinson', 'os três principais sintomas afetam o movimento físico').
+sintoma('Doença de Parkinson', 'tremor - tremores, que geralmente começam na mão ou no braço e são mais propensos a ocorrer quando o membro está relaxado e em repouso').
+sintoma('Doença de Parkinson', 'lentidão nos movimentos (bradicinesia) - onde os movimentos físicos são muito mais lentos do que o normal, o que pode dificultar as tarefas cotidianas e resultar em uma marcha lenta e arrastada com passos muito pequenos').
+sintoma('Doença de Parkinson', 'rigidez muscular - rigidez e tensão nos músculos, o que pode dificultar o movimento e a expressão facial, e pode resultar em cãibras musculares dolorosas (distonia)').
+
+% Sintomas de um AVC
+sintoma('AVC', 'paralisia completa de um lado do corpo').
+sintoma('AVC', 'perda súbita ou embaçamento da visão').
+sintoma('AVC', 'dificuldade em entender o que os outros estão dizendo').
+sintoma('AVC', 'problemas de equilíbrio e coordenação').
+sintoma('AVC', 'dor de cabeça súbita e muito intensa').
+sintoma('AVC', 'perda de sensibilidade em um lado do corpo').
 
 probabilidade('Alzheimer', 0.05).
-probabilidade('Ataxia', 0.03).
+probabilidade('Ataxia', 0.02).
 probabilidade('Paralisia supranuclear progressiva', 0.02).
-probabilidade('Enxaqueca', 0.5).
-probabilidade('Atrofia de Múltiplos Sistemas', 0.4).
+probabilidade('Enxaqueca', 0.3).
+probabilidade('Atrofia de Múltiplos Sistemas', 0.01).
+probabilidade('Fibromialgia', 0.1).
+probabilidade('Doença de Huntington', 0.01).
+probabilidade('Neuralgia Trigeminal', 0.1).
+probabilidade('Epilepsia', 0.1).
+probabilidade('Doença de Parkinson', 0.05).
+probabilidade('AVC', 0.05).
 
-listaSintomas(Doenca,L) :-
-    findall(Sintoma, sintoma(Doenca, Sintoma), L).
-
-contaSintoma(1, 1, Nome, Sintoma) :-
-    assert(sintomaPaciente(Nome,Sintoma)).
-
-contaSintoma(2, 0, _, _).
-
-% Predicado para contar sintomas e salvar seus nomes em uma lista
-quantidadeSintomas(_, [], 0, _).
-quantidadeSintomas(Doenca, [Sintoma|Resto], N, Nome) :-
-    writeln(""),
-    writeln("Responda 1. ou 2. de acordo com as respostas para cada sintoma apresentado: "),
-    write("Eu apresento "),
-    write(Sintoma),
-    writeln("."),
-    writeln("1 - Sim, apresento esse sintoma."),
-    writeln("2 - Não apresento esse sintoma."),
-    read(Resposta),
-    contaSintoma(Resposta, X, Nome, Sintoma),
-    quantidadeSintomas(Doenca, Resto, N1, Nome),
-    N is N1 + X.
-
-perguntas(Doenca, P, Nome) :-
-    listaSintomas(Doenca, L),
-    quantidadeSintomas(Doenca, L, N, Nome),
-    length(L, TotalSintomas),
-    F is 1 / TotalSintomas,
-    PS is N * F,
-    probabilidade(Doenca,PD),
-    fatorRisco(Doenca,FR),
-    P is PS * PD * FR.
-
-exibirSintomas(Nome) :-
-    writeln(""),
-    writeln("Sintomas apresentados pelo paciente: "),
-    forall(sintomaPaciente(Nome, Sintoma), writeln(Sintoma)).
-
-respostaDiagnostico(1,_).
-respostaDiagnostico(2,_) :- halt.
-respostaDiagnostico(3, Nome) :-
-    writeln(""),
-    writeln("----------------------------------------------------------------------"),
-    writeln("Sintomas apresentados pelo paciente: "),
-    forall(sintomaPaciente(Nome, Sintoma),(
-        sintoma(Doenca, Sintoma),
-        writeln(""),
-        write("Doença: "),
-        writeln(Doenca),
-        write("Sintoma apresentado: "),
-        writeln(Sintoma))).
-
-exibirDiagnostico([],_).
-exibirDiagnostico([DP|Resto],Nome) :-
-    [Doenca|[Probabilidade|_]] = DP,
-    write(Doenca),
-    write(": "),
-    R is Probabilidade * 100,
-    write(R),
-    writeln("%"),
-    assert(diagnostico(Nome,Doenca,Probabilidade)),
-    exibirDiagnostico(Resto,Nome),
-    exibirSintomas(Nome),
-    writeln("---------------------------------------------------------------------------------------------------------------------------"),
-    writeln("Lembre-se que este é um diagnóstico baseado somente em sintomas e algumas probabilidades. É importante consultar um médico."),
-    writeln(""),
-    writeln("Deseja realizar um novo diagnóstico?"),
-    writeln('1 - Sim'),
-    writeln('2 - Não'),
-    writeln('3 - Ver detalhes do diagnóstico'),
-    writeln(""),
-    read(Resposta),
-    gravarDadosArquivo(Nome),
-    respostaDiagnostico(Resposta,Nome),
-    main().
-
-gravarDadosArquivo(Nome) :-
-    open('pacientes.txt', write, File), % Abre o arquivo em modo de adição
-    paciente(Nome, Idade, Genero),
-    writeln(File, Nome),
-    writeln(File, Idade), 
-    writeln(File, Genero), 
-    writeln(File, "----------------------------------------------------------------------"),
-    writeln("Sintomas apresentados pelo paciente e suas possíveis doenças: "),
-    forall(sintomaPaciente(Nome, Sintoma),(
-        sintoma(Doenca, Sintoma),
-        writeln(File, ""),
-        write(File, "Possível doença: "),
-        writeln(File, Doenca),
-        write(File, "Sintoma apresentado: "),
-        writeln(File, Sintoma))),
-    writeln(File, ""),
-    writeln(File, "----------------------------------------------------------------------"),
-    writeln(File, 'Diagnóstico:'),
-    forall(diagnostico(Nome, Doenca, Probabilidade),(
-        writeln(File, ""),
-        write(File, "Doença: "),
-        writeln(File, Doenca),
-        write(File, "Probabilidade: "),
-        P is Probabilidade * 100,
-        write(File, P),
-        writeln(File, "%"))),
-    writeln(File, ""),
-    writeln(File, 'Todos os sintomas apresentados pelo paciente: '),
-    forall(sintomaPaciente(Nome, Sintoma), writeln(File, Sintoma)),
-    close(File).
-
-perguntas(Nome, L) :-
-    perguntas('Alzheimer', P1, Nome),
-    perguntas('Ataxia', P2, Nome), 
-    perguntas('Paralisia supranuclear progressiva', P3, Nome),
-    perguntas('Enxaqueca', P4, Nome),       
-    perguntas('Atrofia de Múltiplos Sistemas', P5, Nome),
-    L = [['Alzheimer', P1], ['Ataxia', P2], ['Paralisia supranuclear progressiva', P3],
-    ['Enxaqueca', P4], ['Atrofia de Múltiplos Sistemas', P5]].
-
-main() :-
-    writeln("-----------------------------------------------------------------------------------------------------------------------------"),
-    writeln("Seja bem-vindo ao sistema de diagnóstico de doenças neurológicas. Por favor, responda as perguntas para cadastro do paciente:"),
-    writeln(""),
-    writeln("Digite o nome do paciente:"),
-    read(Nome),
-    writeln(""),
-    writeln("Digite a idade do paciente:"),
-    read(Idade),
-    writeln(""),
-    writeln("Digite o gênero do paciente (masculino/feminino):"),
-    read(Genero),
-    assert(paciente(Nome, Idade, Genero)),
-    perguntas(Nome, ListaProbabilidades),
-    ordenar(ListaProbabilidades, ListaOrdenada),
-    writeln(""),
-    writeln("----------------------------------------------------------------------------------------------------------------------"),
-    writeln("Diagnóstico gerado com base nos sintomas fornecidos: "),
-    writeln("A doença mais provável é: "),
-    writeln(""),
-    exibirDiagnostico(ListaOrdenada,Nome). % Fecha o arquivo
-    
-% Predicado para inserir um elemento em uma lista ordenada em ordem decrescente pelo segundo elemento de cada sublista
-decrescente(Elemento, [], [Elemento]) :- !.
-
-decrescente([Nome1, Valor1], [[Nome2, Valor2] | Resto], [[Nome1, Valor1], [Nome2, Valor2] | Resto]) :-
-    Valor1 >= Valor2, !.
-
-decrescente([Nome1, Valor1], [[Nome2, Valor2] | Resto], [[Nome2, Valor2] | CaudaOrdenada]) :-
-    Valor1 < Valor2,
-    decrescente([Nome1, Valor1], Resto, CaudaOrdenada), !.
-
-% Predicado para ordenar uma lista em ordem decrescente pelo segundo elemento de cada sublista
-ordenar([], []) :- !.
-ordenar([Elemento], [Elemento]) :- !.
-ordenar([Cabeça|Cauda], ListaOrdenada) :-
-    ordenar(Cauda, CaudaOrdenada),
-    decrescente(Cabeça, CaudaOrdenada, ListaOrdenada).
-
-
-:- main.

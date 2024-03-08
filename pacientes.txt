@@ -1,0 +1,474 @@
+luciana
+70
+feminino
+----------------------------------------------------------------------
+
+Possível doença: Alzheimer
+Sintoma apresentado: lapsos de memória
+
+Possível doença: Alzheimer
+Sintoma apresentado: dificuldade em reconhecer pessoas
+
+Possível doença: Alzheimer
+Sintoma apresentado: problemas de memória a curto e longo prazo
+
+Possível doença: Ataxia
+Sintoma apresentado: tremores ou agitação
+
+Possível doença: Ataxia
+Sintoma apresentado: problemas de visão
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: rigidez muscular
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: tremores
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas intestinais e urinários
+
+Possível doença: Enxaqueca
+Sintoma apresentado: dor pulsante
+
+Possível doença: Enxaqueca
+Sintoma apresentado: náuseas
+
+Possível doença: Enxaqueca
+Sintoma apresentado: vômitos
+
+Possível doença: Enxaqueca
+Sintoma apresentado: sensibilidade a luz e som
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: respiração ruidosa
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: suspiros involuntários
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: voz fraca
+Diagnóstico:
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 0.06000000000000001%
+
+Doença: Enxaqueca
+Probabilidade: 0.04000000000000001%
+
+Doença: Alzheimer
+Probabilidade: 0.0075000000000000015%
+
+Doença: Ataxia
+Probabilidade: 0.00225%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 0.0017777777777777779%
+Sintomas apresentados pelo paciente: 
+lapsos de memória
+dificuldade em reconhecer pessoas
+problemas de memória a curto e longo prazo
+tremores ou agitação
+problemas de visão
+rigidez muscular
+tremores
+fala mais lenta e arrastada
+problemas intestinais e urinários
+dor pulsante
+náuseas
+vômitos
+sensibilidade a luz e som
+respiração ruidosa
+suspiros involuntários
+voz fraca
+
+----------------------------------------------------------------------
+Dados do paciente: 
+ana maria
+70
+feminino
+----------------------------------------------------------------------
+
+Possível doença: Alzheimer
+Sintoma apresentado: dificuldade em recordar palavras
+
+Possível doença: Alzheimer
+Sintoma apresentado: repetição frequente de perguntas
+
+Possível doença: Alzheimer
+Sintoma apresentado: dificuldade em tomar decisões
+
+Possível doença: Alzheimer
+Sintoma apresentado: problemas de memória a curto e longo prazo
+
+Possível doença: Ataxia
+Sintoma apresentado: incapacidade de andar em linha reta
+
+Possível doença: Ataxia
+Sintoma apresentado: fadiga
+
+Possível doença: Ataxia
+Sintoma apresentado: problemas de visão
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: quedas repetidas
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas de mobilidade
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: dificuldade no controle muscular da boca língua e garganta
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas intestinais e urinários
+
+Possível doença: Enxaqueca
+Sintoma apresentado: agitação
+
+Possível doença: Enxaqueca
+Sintoma apresentado: sensibilidade a luz e som
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: problemas de coordenação
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: visão turva
+
+----------------------------------------------------------------------
+Diagnóstico:
+
+Doença: Enxaqueca
+Probabilidade: 15.833333333333332%
+
+Doença: Alzheimer
+Probabilidade: 4.000000000000001%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 2.444444444444444%
+
+Doença: Ataxia
+Probabilidade: 2.0625%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 1.3333333333333333%
+
+
+----------------------------------------------------------------------
+Dados do paciente: 
+paula
+80
+feminino
+----------------------------------------------------------------------
+
+Possível doença: Alzheimer
+Sintoma apresentado: dificuldade em reconhecer pessoas
+
+Possível doença: Alzheimer
+Sintoma apresentado: repetição frequente de perguntas
+
+Possível doença: Alzheimer
+Sintoma apresentado: confusão e desorientação
+
+Possível doença: Alzheimer
+Sintoma apresentado: paranoia e desconfiança
+
+Possível doença: Alzheimer
+Sintoma apresentado: problemas de memória a curto e longo prazo
+
+Possível doença: Ataxia
+Sintoma apresentado: incapacidade de andar em linha reta
+
+Possível doença: Ataxia
+Sintoma apresentado: fala arrastada
+
+Possível doença: Ataxia
+Sintoma apresentado: tremores ou agitação
+
+Possível doença: Ataxia
+Sintoma apresentado: problemas de visão
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: rigidez muscular
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: tremores
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: dificuldade no controle muscular da boca língua e garganta
+
+Possível doença: Enxaqueca
+Sintoma apresentado: agitação
+
+Possível doença: Enxaqueca
+Sintoma apresentado: dor pulsante na cabeça
+
+Possível doença: Enxaqueca
+Sintoma apresentado: vômitos
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: problemas de coordenação
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: risos ou choro incontroláveis
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: voz fraca
+
+----------------------------------------------------------------------
+Diagnóstico:
+
+Doença: Enxaqueca
+Probabilidade: 26.249999999999996%
+
+Doença: Alzheimer
+Probabilidade: 7.500000000000001%
+
+Doença: Ataxia
+Probabilidade: 5.250000000000001%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 4.666666666666667%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 4.500000000000001%
+
+
+----------------------------------------------------------------------
+Dados do paciente: 
+Fernanda Montenegro.
+80
+feminino
+----------------------------------------------------------------------
+
+Possível doença: Alzheimer
+Sintoma apresentado: repetição frequente de perguntas
+
+Possível doença: Alzheimer
+Sintoma apresentado: dificuldade em tomar decisões
+
+Possível doença: Alzheimer
+Sintoma apresentado: confusão e desorientação
+
+Possível doença: Alzheimer
+Sintoma apresentado: delírios
+
+Possível doença: Alzheimer
+Sintoma apresentado: paranoia e desconfiança
+
+Possível doença: Alzheimer
+Sintoma apresentado: distúrbios do sono
+
+Possível doença: Alzheimer
+Sintoma apresentado: problemas de memória a curto e longo prazo
+
+Possível doença: Ataxia
+Sintoma apresentado: quedas com frequência
+
+Possível doença: Ataxia
+Sintoma apresentado: incapacidade de andar em linha reta
+
+Possível doença: Ataxia
+Sintoma apresentado: desajeitamento
+
+Possível doença: Ataxia
+Sintoma apresentado: fala arrastada
+
+Possível doença: Ataxia
+Sintoma apresentado: dificuldades para engolir
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: quedas repetidas
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: rigidez muscular
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas oculares
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: tremores
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: lentidão de pensamento
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas de mobilidade
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: dificuldade no controle muscular da boca língua e garganta
+
+Possível doença: Enxaqueca
+Sintoma apresentado: vômitos
+
+Possível doença: Enxaqueca
+Sintoma apresentado: sensibilidade a luz e som
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: problemas de coordenação
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: tremor, lentidão e rigidez
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: risos ou choro incontroláveis
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: respiração ruidosa
+
+----------------------------------------------------------------------
+Diagnóstico:
+
+Doença: Enxaqueca
+Probabilidade: 17.499999999999996%
+
+Doença: Alzheimer
+Probabilidade: 10.500000000000002%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 9.333333333333334%
+
+Doença: Ataxia
+Probabilidade: 6.5625%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 6.000000000000001%
+
+
+#########################################################################
+Dados do paciente: 
+#########################################################################
+jordana
+70
+feminino
+----------------------------------------------------------------------
+Sintomas apresentados pelo paciente e suas possíveis doenças: 
+----------------------------------------------------------------------
+
+Possível doença: Ataxia
+Sintoma apresentado: quedas com frequência
+
+Possível doença: Ataxia
+Sintoma apresentado: incapacidade de andar em linha reta
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: lentidão de pensamento
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas de mobilidade
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: problemas de coordenação
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: tremor, lentidão e rigidez
+
+----------------------------------------------------------------------
+Diagnóstico:
+----------------------------------------------------------------------
+
+Doença: Ataxia
+Probabilidade: 5.5%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 5.5%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 4.0%
+
+Doença: Alzheimer
+Probabilidade: 0.0%
+
+Doença: Enxaqueca
+Probabilidade: 0.0%
+
+----------------------------------------------------------------------
+
+#########################################################################
+Dados do paciente: 
+#########################################################################
+jordana
+70
+feminino
+----------------------------------------------------------------------
+Sintomas apresentados pelo paciente e suas possíveis doenças: 
+----------------------------------------------------------------------
+
+Possível doença: Ataxia
+Sintoma apresentado: quedas com frequência
+
+Possível doença: Ataxia
+Sintoma apresentado: incapacidade de andar em linha reta
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: lentidão de pensamento
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas de mobilidade
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: problemas de coordenação
+
+Possível doença: Atrofia de Múltiplos Sistemas
+Sintoma apresentado: tremor, lentidão e rigidez
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: lentidão de pensamento
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: fala mais lenta e arrastada
+
+Possível doença: Paralisia supranuclear progressiva
+Sintoma apresentado: problemas de mobilidade
+
+Possível doença: Enxaqueca
+Sintoma apresentado: agitação
+
+----------------------------------------------------------------------
+Diagnóstico:
+----------------------------------------------------------------------
+
+Doença: Ataxia
+Probabilidade: 5.5%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 5.5%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 4.0%
+
+Doença: Alzheimer
+Probabilidade: 0.0%
+
+Doença: Enxaqueca
+Probabilidade: 0.0%
+
+Doença: Enxaqueca
+Probabilidade: 15.833333333333332%
+
+Doença: Paralisia supranuclear progressiva
+Probabilidade: 5.5%
+
+Doença: Alzheimer
+Probabilidade: 0.0%
+
+Doença: Ataxia
+Probabilidade: 0.0%
+
+Doença: Atrofia de Múltiplos Sistemas
+Probabilidade: 0.0%
+
+----------------------------------------------------------------------
