@@ -124,15 +124,15 @@ sintoma('AVC', 'problemas de equilíbrio e coordenação').
 sintoma('AVC', 'dor de cabeça súbita e muito intensa').
 sintoma('AVC', 'perda de sensibilidade em um lado do corpo').
 
-probabilidade('Alzheimer', 0.05).
-probabilidade('Ataxia', 0.02).
-probabilidade('Paralisia supranuclear progressiva', 0.02).
-probabilidade('Enxaqueca', 0.3).
-probabilidade('Atrofia de Múltiplos Sistemas', 0.01).
-probabilidade('Fibromialgia', 0.1).
-probabilidade('Doença de Huntington', 0.01).
-probabilidade('Neuralgia Trigeminal', 0.1).
-probabilidade('Epilepsia', 0.1).
-probabilidade('Doença de Parkinson', 0.05).
-probabilidade('AVC', 0.05).
+probabilidade('Alzheimer', 0.00625).
+probabilidade('Ataxia', 0.00003).
+probabilidade('Paralisia supranuclear progressiva', 0.00006).
+probabilidade('Enxaqueca', 0.15).
+probabilidade('Atrofia de Múltiplos Sistemas', 0.000049).
+probabilidade('Fibromialgia', 0.08).
+probabilidade('Doença de Huntington', 0.0000488).
+probabilidade('Neuralgia Trigeminal', 0.013).
+probabilidade('Epilepsia', 0.00625).
+probabilidade('Doença de Parkinson', 0.0010625).
+probabilidade('AVC', 0.01375).
 

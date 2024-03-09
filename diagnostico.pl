@@ -1,25 +1,36 @@
+% Consulta a base de conhecimento
+:- consult('base.pl'). 
+:- use_module(library(readutil)). 
 
-:- consult('base.pl').
-:- use_module(library(readutil)).
+ % Declaração dinâmica de predicados para pacientes, sintomas e diagnostico
 :- dynamic paciente/3.
-:- dynamic sintomaPaciente/2.
-:- dynamic diagnostico/3.
+:- dynamic sintomaPaciente/2. 
+:- dynamic diagnostico/3. 
 
+% fatorRisco(+Doenca, ?F, +Nome) is det
+% Predicado para calcular o fator de risco de uma doença.
+% Mulheres possuem 1.5 vezes mais chances de desenvolver doenças neurológicas do que homens
+% A cada 10 anos após os 65 anos, a probabilidade de desenvolver doenças neurológicas aumenta em 5%
 fatorRisco(Doenca, F, Nome) :-
-    paciente(Nome,Idade,Genero),
+    paciente(Nome, Idade, Genero),
     probabilidade(Doenca,P),
     (Genero == 'masculino', X is P; X is P * 1.5),
     (Idade > 65, F is X + (Idade - 65) / 10 * 0.05; F is X).
 
-listaSintomas(Doenca,L) :-
+% listaSintomas(+Doenca, ?L) is det
+% Predicado para listar os sintomas de uma doença.
+listaSintomas(Doenca, L) :-
     findall(Sintoma, sintoma(Doenca, Sintoma), L).
 
+% contaSintoma(+Resposta, ?X, +Nome, +Sintoma) is det
+% Predicado para contar o número de sintomas apresentados por um paciente, se o sintoma é contado, ele é salvo dinâmicamente.
 contaSintoma(1, 1, Nome, Sintoma) :-
     assert(sintomaPaciente(Nome,Sintoma)).
-
 contaSintoma(2, 0, _, _).
 
-% Predicado para contar sintomas e salvar seus nomes em uma lista
+% quantidadeSintomas(+Doenca, +L, ?N, +Nome) is semidet
+% Predicado para contar os N sintomas de uma Doenca que são confirmados pelo paciente identificado pelo Nome.
+% A lista L é a lista de todos os sintomas da Doenca e N é a quantidade de sintomas confirmados pelo paciente.
 quantidadeSintomas(_, [], 0, _).
 quantidadeSintomas(Doenca, [Sintoma|Resto], N, Nome) :-
     writeln(""),
@@ -34,6 +45,10 @@ quantidadeSintomas(Doenca, [Sintoma|Resto], N, Nome) :-
     quantidadeSintomas(Doenca, Resto, N1, Nome),
     N is N1 + X.
 
+% perguntas(+Doenca, ?P, +Nome) is det
+% Predicado para fazer perguntas ao paciente sobre sintomas para gerar um diagnóstico.
+% A lista de sintomas L da Doenca é passada para contar a quantidade N de sintomas do paciente, e a probabilidade P é calculada através 
+% do fator de risco e a quantidade N de sintomas.
 perguntas(Doenca, P, Nome) :-
     listaSintomas(Doenca, L),
     quantidadeSintomas(Doenca, L, N, Nome),
@@ -43,20 +58,26 @@ perguntas(Doenca, P, Nome) :-
     fatorRisco(Doenca,FR,Nome),
     P is PS * FR.
 
+% listar(+Lista) is semidet
+% Predicado para listar os elementos de uma lista.
 listar([]).
 listar([X|Y]) :-
     write("- "),
     writeln(X),
     listar(Y).
 
+% exibirSintomas(+Nome) is det
+% Predicado para exibir os sintomas apresentados por um paciente.
 exibirSintomas(Nome) :-
     writeln(""),
     writeln("Sintomas apresentados pelo paciente: "),
     findall(Sintoma, sintomaPaciente(Nome, Sintoma), ListaSintomas),
     listar(ListaSintomas).
 
-respostaDiagnostico(1,_).
-respostaDiagnostico(2,_) :- halt.
+% respostaDiagnostico(+Resposta, +Nome) is det
+% Predicado para lidar com a resposta do paciente após o diagnóstico.
+respostaDiagnostico(1, _).
+respostaDiagnostico(2, _) :- halt.
 respostaDiagnostico(3, Nome) :-
     writeln(""),
     writeln("----------------------------------------------------------------------"),
@@ -69,13 +90,14 @@ respostaDiagnostico(3, Nome) :-
         write("Sintoma apresentado: "),
         writeln(Sintoma))).
 
-exibirDiagnostico([],_).
-exibirDiagnostico([DP|Resto],Nome) :-
+% exibirDiagnostico(+Lista, +Nome) is det
+% Predicado para exibir o diagnóstico gerado para um paciente.
+exibirDiagnostico([], _).
+exibirDiagnostico([DP|Resto], Nome) :-
     [Doenca|[Probabilidade|_]] = DP,
+    R is Probabilidade * 100,
     write(Doenca),
     write(": "),
-    R is Probabilidade * 100,
-    R > 0,
     write(R),
     writeln("%"),
     assert(diagnostico(Nome,Doenca,Probabilidade)),
@@ -92,12 +114,61 @@ exibirDiagnostico([DP|Resto],Nome) :-
     writeln(""),
     read(Resposta),
     gravarDadosArquivo(Nome),
-    respostaDiagnostico(Resposta,Nome),
-    main().
+    gravarPacientes,
+    respostaDiagnostico(Resposta, Nome),
+    main(). % Fecha o arquivo
 
+% lerPacientes is det
+% Predicado para listar os cadastros de pacientes.
+lerPacientes :-
+    consult('pacientes.pl'),
+    paciente(Nome, Idade, Genero),
+    format('Nome: ~w, Idade: ~w, Gênero: ~w~n', [Nome, Idade, Genero]),
+    fail.
+
+% excluirPaciente(+Nome) is det
+% Predicado para excluir um cadastro de paciente.
+excluirPaciente(Nome) :-
+    consult('pacientes.pl'),
+    retract(paciente(Nome, _, _)),
+    retractall(sintomaPaciente(Nome, _)),
+    retractall(diagnostico(Nome, _, _)),
+    atomic_concat(Nome, '.txt', NomeComExtensao),
+    delete_file(NomeComExtensao),
+    gravarPacientes,
+    write('Cadastro de paciente excluído.'), nl.
+
+% atualizarPaciente(+Nome, +NovaIdade, +NovoGenero) is det
+% Predicado para atualizar os dados de um paciente.
+atualizarPaciente(Nome, NovaIdade, NovoGenero) :-
+    excluirPaciente(Nome),
+    assert(paciente(Nome, NovaIdade, NovoGenero)),
+    gravarPacientes,
+    write('Cadastro de paciente atualizado.'), nl.
+
+% atualizarDiagnosticoPaciente(+Nome) is det
+% Predicado para atualizar o diagnóstico de um paciente.
+atualizarDiagnosticoPaciente(Nome) :-
+    excluirPaciente(Nome),
+    write('Para atualizar o cadastro, realize um novo diagnóstico:'), 
+    nl,
+    main.
+
+% gravarPacientes is det
+% Predicado para gravar os pacientes em um arquivo.
+gravarPacientes :-
+    tell('pacientes.pl'),
+    listing(paciente),
+    listing(sintomaPaciente),
+    listing(diagnostico),
+    told.
+
+% gravarDadosArquivo(+Nome) is det
+% Predicado para gravar os dados de um paciente em um arquivo.
 gravarDadosArquivo(Nome) :-
-    open('pacientes.txt', append, File), % Abre o arquivo em modo de adição
-    writeln(File, ""),
+    atomic_concat(Nome, '.txt', NomeComExtensao),
+    open(NomeComExtensao, append, File), % Abre o arquivo em modo de adição
+    nl,
     writeln(File, "#########################################################################"),
     writeln(File, "Dados do paciente: "),
     writeln(File, "#########################################################################"),
@@ -131,6 +202,15 @@ gravarDadosArquivo(Nome) :-
     writeln(File, "----------------------------------------------------------------------"),
     close(File).
 
+% perguntas(+Nome, -L) is det
+% Predicado para fazer perguntas ao paciente para gerar um diagnóstico.
+perguntas(Nome, L) :-
+    perguntas('Alzheimer', P1, Nome),
+    perguntas('Ataxia', P2, Nome), 
+    perguntas('Paralisia supranuclear progressiva', P3, Nome),
+    L = [['Alzheimer', P1], ['Ataxia', P2], ['Paralisia supranuclear progressiva', P3]].
+
+/*
 perguntas(Nome, L) :-
     perguntas('Alzheimer', P1, Nome),
     perguntas('Ataxia', P2, Nome), 
@@ -146,11 +226,16 @@ perguntas(Nome, L) :-
     L = [['Alzheimer', P1], ['Ataxia', P2], ['Paralisia supranuclear progressiva', P3],
     ['Enxaqueca', P4], ['Atrofia de Múltiplos Sistemas', P5], ['Fibromialgia', P6], ['Esclerose múltipla', P7],
     ['Parkinson', P8], ['Esclerose lateral amiotrófica', P9], ['Epilepsia', P10], ['Doenca',P11]].
+*/
 
+% genero(+Resposta, ?Genero) is det
+% Predicado para identificar o gênero do paciente.
 genero(1, 'masculino').
 genero(2, 'feminino').
 
-main() :-
+% main is det
+% Predicado principal para iniciar o sistema de diagnóstico.
+main :-
     writeln("-----------------------------------------------------------------------------------------------------------------------------"),
     writeln("Seja bem-vindo ao sistema de diagnóstico de doenças neurológicas. Por favor, responda as perguntas para cadastro do paciente:"),
     writeln(""),
@@ -171,20 +256,20 @@ main() :-
     writeln(""),
     writeln("----------------------------------------------------------------------------------------------------------------------"),
     writeln("Diagnóstico gerado com base nos sintomas fornecidos: "),
-    writeln("A doença mais provável é: "),
     writeln(""),
-    exibirDiagnostico(ListaOrdenada,Nome). % Fecha o arquivo
-    
+    filtrar(ListaOrdenada, ListaOrdenadaFiltrada),
+    exibirDiagnostico(ListaOrdenadaFiltrada, Nome). % Fecha o arquivo
+
+% decrescente(+Elemento, +Lista, ?ListaOrdenada) is det
 % Predicado para inserir um elemento em uma lista ordenada em ordem decrescente pelo segundo elemento de cada sublista
 decrescente(Elemento, [], [Elemento]) :- !.
-
 decrescente([Nome1, Valor1], [[Nome2, Valor2] | Resto], [[Nome1, Valor1], [Nome2, Valor2] | Resto]) :-
     Valor1 >= Valor2, !.
-
 decrescente([Nome1, Valor1], [[Nome2, Valor2] | Resto], [[Nome2, Valor2] | CaudaOrdenada]) :-
     Valor1 < Valor2,
     decrescente([Nome1, Valor1], Resto, CaudaOrdenada), !.
 
+% ordenar(+Lista, ?ListaOrdenada) is det
 % Predicado para ordenar uma lista em ordem decrescente pelo segundo elemento de cada sublista
 ordenar([], []) :- !.
 ordenar([Elemento], [Elemento]) :- !.
@@ -192,39 +277,15 @@ ordenar([Cabeça|Cauda], ListaOrdenada) :-
     ordenar(Cauda, CaudaOrdenada),
     decrescente(Cabeça, CaudaOrdenada, ListaOrdenada).
 
-% Predicado para atualizar os dados de um paciente no arquivo
-atualizarPacienteArquivo(Nome, Idade, Genero) :-
-    carregarPacientes, % Carrega todos os pacientes do arquivo para a memória
-    retract(paciente(Nome, _, _)), % Remove os dados antigos do paciente da memória
-    assert(paciente(Nome, Idade, Genero)), % Insere os novos dados do paciente na memória
-    reescreverPacientes. % Reescreve todos os pacientes no arquivo com os dados atualizados
+% filtrar(+Lista, ?ListaFiltrada) is det
+% Predicado para filtrar os diagnósticos com probabilidade maior do que zero.
+filtrar([], []).
+filtrar([X|Xs], [X|Ys]) :-
+    [_|[P|_]] = X,
+    P > 0,
+    filtrar(Xs, Ys).
 
-excluirPacienteArquivo(Nome, Idade, Genero) :-
-    carregarPacientes, % Carrega todos os pacientes do arquivo para a memória
-    retract(paciente(Nome, _, _)), % Remove os dados antigos do paciente da memória
-    reescreverPacientes. % Reescreve todos os pacientes no arquivo com os dados atualizados
-
-% Predicado para reescrever todos os pacientes no arquivo com os dados atualizados
-reescreverPacientes :-
-    open('pacientes.txt', write, File), % Abre o arquivo para escrita
-    forall(paciente(Nome, Idade, Genero), (
-        writeln(File, Nome),
-        writeln(File, Idade),
-        writeln(File, Genero),
-        writeln(File, "----------------------------------------------------------------------")
-    )),
-    close(File). % Fecha o arquivo
-
-% Predicado para carregar todos os pacientes do arquivo para a memória
-carregarPacientes :-
-    open('pacientes.txt', read, File), % Abre o arquivo para leitura
-    repeat,
-    read(File, Nome),
-    read(File, Idade),
-    read(File, Genero),
-    assert(paciente(Nome, Idade, Genero)), % Insere os dados do paciente na memória
-    read(File, _), % Descarta a linha de separação
-    at_end_of_stream(File), !, % Verifica se chegou ao final do arquivo
-    close(File). % Fecha o arquivo
-
-:- main.
+filtrar([X|Xs], Ys) :-
+    [_|[P|_]] = X,
+    P =< 0,
+    filtrar(Xs, Ys).

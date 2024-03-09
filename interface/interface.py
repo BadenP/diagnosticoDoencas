@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QComboBox, QPushButton, QLabel
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QComboBox, QPushButton, QLabel, QCheckBox
 from pyswip import Prolog
 
 class MainWindow(QWidget):
@@ -18,13 +18,11 @@ class MainWindow(QWidget):
         self.label = QLabel("Selecione os sintomas:")
         layout.addWidget(self.label)
 
-        self.combo_sintomas = QComboBox()
-        self.combo_sintomas.addItems(["febre", "tosse", "Dor de Garganta", "Nariz Entupido", "Mal-Estar", "Dor de Cabeça", "Dor no Corpo", "Manchas na Pele"])
-        layout.addWidget(self.combo_sintomas)
-
-        self.button_adicionar = QPushButton("Adicionar Sintoma")
-        self.button_adicionar.clicked.connect(self.adicionar_sintoma)
-        layout.addWidget(self.button_adicionar)
+        self.checkboxes = []
+        for sintoma in ["falar", "sorrir", "mastigar", "Nariz Entupido", "Mal-Estar", "Dor de Cabeça", "Dor no Corpo", "Manchas na Pele"]:
+            checkbox = QCheckBox(sintoma)
+            layout.addWidget(checkbox)
+            self.checkboxes.append(checkbox)
 
         self.button_consultar = QPushButton("Consultar Doença")
         self.button_consultar.clicked.connect(self.consultar_doenca)
@@ -35,13 +33,8 @@ class MainWindow(QWidget):
 
         self.setLayout(layout)
 
-    def adicionar_sintoma(self):
-        sintoma = self.combo_sintomas.currentText()
-        if sintoma not in self.sintomas_selecionados:
-            self.sintomas_selecionados.append(sintoma)
-            self.label.setText("Sintomas selecionados: " + ", ".join(self.sintomas_selecionados))
-
     def consultar_doenca(self):
+        self.sintomas_selecionados = [checkbox.text() for checkbox in self.checkboxes if checkbox.isChecked()]
         if self.sintomas_selecionados:
             sintomas = [sintoma.replace(" ", "_") for sintoma in self.sintomas_selecionados]
             sintomas_query = ",".join(["sintoma(D, {})".format(s) for s in sintomas])
@@ -55,7 +48,6 @@ class MainWindow(QWidget):
                 self.result_label.setText("Nenhuma doença encontrada para os sintomas selecionados.")
         else:
             self.result_label.setText("Selecione pelo menos um sintoma.")
-
 
 
 if __name__ == "__main__":

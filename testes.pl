@@ -387,5 +387,52 @@ test(ordenar_mais_elementos) :-
 
 :- end_tests(ordenar).
 
+:- begin_tests(diagnostico).
+
+% Testes para o predicado fatorRisco/3
+test(fatorRisco) :-
+    assert(paciente(joao, 70, masculino)),
+    assert(probabilidade(doenca1, 0.5)),
+    fatorRisco(doenca1, F, joao),
+    assertion(F =:= 0.25),
+    retract(paciente(joao, 70, masculino)),
+    retract(probabilidade(doenca1, 0.5)).
+
+% Testes para o predicado excluirPaciente/1
+test(excluirPaciente) :-
+    assert(paciente(maria, 50, feminino)),
+    assert(sintomaPaciente(maria, sintoma1)),
+    assert(diagnostico(maria, doenca1, 0.7)),
+    excluirPaciente(maria),
+    \+ paciente(maria, _, _),
+    \+ sintomaPaciente(maria, _),
+    \+ diagnostico(maria, _, _).
+
+% Testes para o predicado atualizarPaciente/3
+test(atualizarPaciente) :-
+    assert(paciente(pedro, 40, masculino)),
+    atualizarPaciente(pedro, 45, masculino),
+    paciente(pedro, 45, masculino),
+    retract(paciente(pedro, 45, masculino)).
+
+% Testes para o predicado perguntas/2
+test(perguntas) :-
+    assert(paciente(ana, 60, feminino)),
+    assert(probabilidade(doenca2, 0.3)),
+    assert(sintoma(doenca2, sintoma2)),
+    perguntas(ana, ListaProbabilidades),
+    assertion(ListaProbabilidades == [['Alzheimer', _], ['Ataxia', _], ['Paralisia supranuclear progressiva', _], ['doenca2', _]]),
+    retract(paciente(ana, 60, feminino)),
+    retract(probabilidade(doenca2, 0.3)),
+    retract(sintoma(doenca2, sintoma2)).
+
+% Testes para o predicado filtrar/2
+test(filtrar) :-
+    Lista = [[doenca1, 0.5], [doenca2, -0.1], [doenca3, 0.8]],
+    filtrar(Lista, ListaFiltrada),
+    assertion(ListaFiltrada == [[doenca1, 0.5], [doenca3, 0.8]]).
+
+:- end_tests(diagnostico).
+
 % Executa todos os testes
 :- run_tests.
